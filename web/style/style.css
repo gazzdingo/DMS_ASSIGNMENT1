@@ -1,0 +1,47 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 23/03/2015, 5:32:47 PM
+    Author     : guy
+*/
+body{
+    font-family: helvetica;
+    text-align: center;
+    background: url("../images/bg.jpg");
+     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    
+}
+form[name="login"]{
+    width:400px;
+    height:500px;
+    margin:0 auto;
+    border: 2px solid #000;
+    border-radius: 20px;
+    margin-top:5%;
+    background: rgba(255,255,255,0.9);
+}
+form[name="login"] input{
+    height:55px;
+    width:300px;
+    border: 2px solid #000;
+    border-radius: 15px;
+    padding: 2% 8%;
+    
+    font-size: 18pt;
+}
+form[name="login"] h3{
+    font-size: 20pt;
+    color:#777;
+    margin-bottom:10px;
+}
+form[name="login"] h2{
+    font-size: 24pt;
+    padding-bottom: 30px;
+    color:#555;
+}
