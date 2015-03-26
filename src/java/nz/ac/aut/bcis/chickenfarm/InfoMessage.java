@@ -4,7 +4,6 @@
  */
 package nz.ac.aut.bcis.chickenfarm;
 
-import java.beans.*;
 import java.io.Serializable;
 
 /**

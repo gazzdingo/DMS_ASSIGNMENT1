@@ -7,10 +7,6 @@ package nz.ac.aut.bcis.chickenfarm;
 
 import java.io.IOException;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -39,8 +35,8 @@ public class AuthLogin extends HttpServlet {
             
             if(rs.next()){
                  UserData ud= new UserData();
-                 ud.setEmail(rs.getString(1));
-                 ud.setId(rs.getInt(0));
+                 ud.setEmail(rs.getString(2));
+                 ud.setId(rs.getInt(1));
                  HttpSession session = request.getSession(true);
                  session.setAttribute("userdata",ud);
                 request.getRequestDispatcher("/index.jsp").forward(request, response);
@@ -59,7 +55,7 @@ public class AuthLogin extends HttpServlet {
             InfoMessage error = new InfoMessage();
             error.setMessageType("ERROR");
             error.setMessage("Could not connect to DataBase");
-            //request.setAttribute("error", error);
+            request.setAttribute("error", error);
             request.getRequestDispatcher("/login.jsp").forward(request, response);
         }
    
