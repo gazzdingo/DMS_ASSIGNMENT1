@@ -18,21 +18,23 @@ import java.util.Collection;
 import java.util.List;
 
 
-public class DataBase {
+public final class DataBase {
+    
+    private static final String CREATE_USER_TABLE = "CREATE TABLE Users (id INT not null primary key GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1), email VARCHAR(40) UNIQUE, password VARCHAR(40))";
+    private static final String CREATE_ITEM_TABLE = "CREATE TABLE Items (id INT not null primary key, item_type VARCHAR(30), location VARCHAR(30))";
+    private static final String ALTER_TABLE = "ALTER TABLE ITEMS add foreign key(id) references USERS";
+    
 	private String driver = "org.apache.derby.jdbc.EmbeddedDriver";
-	private String protocol = "jdbc:derby:";
-	private String dbName = "derbyDB"; // the name of the database
+	private String URL = "jdbc:derby://localhost:1527/ChickenFarm/";
+        private String userName = "chicken";
+        private String password = "farm";
 	private Connection conn;
 	private PreparedStatement psInsert;
 	private Statement s;
 
-
-
-	public DataBase(String dbName, boolean autoCommit) throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
-		this.dbName = dbName;
-		Class.forName(driver).newInstance();
-		conn = DriverManager.getConnection(protocol + this.dbName + ";create=true");
-		conn.setAutoCommit(autoCommit);
+	public DataBase() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
+		Class.forName(driver);
+		conn = DriverManager.getConnection(URL, userName, password);
 		psInsert = null;
 		s = conn.createStatement();
 		Runtime.getRuntime().addShutdownHook(new Thread() {
@@ -41,6 +43,16 @@ public class DataBase {
 				shutDownDatabase();
 			}
 		});
+                
+            //Initializing Tables
+            if(!tableExists("USERS")){
+                execute(CREATE_USER_TABLE);
+            }
+            if(!tableExists("ITEMS"))
+            {
+                execute(CREATE_ITEM_TABLE);
+                execute(ALTER_TABLE);
+            }
 	}
 
 	public boolean execute(String exc) throws SQLException {

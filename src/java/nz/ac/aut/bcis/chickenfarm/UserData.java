@@ -6,13 +6,11 @@
 package nz.ac.aut.bcis.chickenfarm;
 
 import java.io.Serializable;
-import javax.ejb.Stateless;
 
 /**
  *
  * @author guy
  */
-@Stateless
 public class UserData implements Serializable{
 
     public UserData() {

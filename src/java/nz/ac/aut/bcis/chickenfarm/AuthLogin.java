@@ -25,45 +25,41 @@ import nz.ac.aut.bcis.chickenfarm.databases.DataBase;
  */
 @WebServlet(urlPatterns = {"/authlogin"})
 public class AuthLogin extends HttpServlet {
-
-    private static final String DB_USER = "users";
   
-    private static final String DB_TABLE_NAME = "USERS";
-    private static final String CREATE_USER_TABLE = "CREATE TABLE Users (id INT not null primary key GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1), email VARCHAR(40) UNIQUE, password VARCHAR(40))";
-    private static final String ALTER_TABLE = "ALTER TABLE ITEMS add foreign key(id) references USERS";
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         // connecting to the database
         try {
-            DataBase db = new DataBase(DB_USER, true);
-            if(!db.tableExists(DB_TABLE_NAME)){
-                db.execute(CREATE_USER_TABLE);
-                
-            }
-            String query = "select * from " +DB_TABLE_NAME+" where email ='"+email+"' and where password = '"+ password+"';";
-             ResultSet rs = db.query(query);
-             ResultSetMetaData metaData = rs.getMetaData();
-             int columns = metaData.getColumnCount();
-             UserData ud= null;
+            DataBase db = new DataBase();
+            
+            String query = "SELECT * FROM USERS WHERE EMAIL='"+email+"' AND PASSWORD='"+ password+"'";
+            ResultSet rs = db.query(query);
+            
             if(rs.next()){
-                 ud= new UserData();
+                 UserData ud= new UserData();
                  ud.setEmail(rs.getString(1));
                  ud.setId(rs.getInt(0));
                  HttpSession session = request.getSession(true);
                  session.setAttribute("userdata",ud);
-            request.getRequestDispatcher("/index.jsp").forward(request, response);
-            }else{
-            
-            request.setAttribute("Error", "Unknown user, please try again");
-            request.getRequestDispatcher("/login.jsp").forward(request, response);
+                request.getRequestDispatcher("/index.jsp").forward(request, response);
+            }
+            else{
+                InfoMessage error = new InfoMessage();
+                error.setMessageType("ERROR");
+                error.setMessage("User Details not found");
+                request.setAttribute("error", error);
+                request.getRequestDispatcher("/login.jsp").forward(request, response);
             }
            
             
         } catch (Exception ex) {
             
-            request.setAttribute("Error", "Could not connet to DataBase");
+            InfoMessage error = new InfoMessage();
+            error.setMessageType("ERROR");
+            error.setMessage("Could not connect to DataBase");
+            //request.setAttribute("error", error);
             request.getRequestDispatcher("/login.jsp").forward(request, response);
         }
    
