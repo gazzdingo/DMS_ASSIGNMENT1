@@ -8,6 +8,10 @@
         <servlet-name>AuthLogin</servlet-name>
         <servlet-class>nz.ac.aut.bcis.chickenfarm.AuthLogin</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CreateUser</servlet-name>
+        <servlet-class>nz.ac.aut.bcis.chickenfarm.CreateUser</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ChickeFarm</servlet-name>
         <url-pattern>/ChickeFarm</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>AuthLogin</servlet-name>
         <url-pattern>/AuthLogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateUser</servlet-name>
+        <url-pattern>/createuser</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

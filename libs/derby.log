@@ -1,0 +1,19 @@
+----------------------------------------------------------------
+Wed Mar 25 12:48:53 NZDT 2015:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-4e30-51b2-000002f6f7e0 
+on database directory /home/guy/IdeaProjects/CodeStorage/123 with class loader sun.misc.Launcher$AppClassLoader@6f94fa3e 
+Loaded from file:/home/guy/IdeaProjects/CodeStorage/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_25-b17
+user.dir=/home/guy/IdeaProjects/CodeStorage
+os.name=Linux
+os.arch=amd64
+os.version=3.18.9-200.fc21.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Wed Mar 25 12:49:18 NZDT 2015: Shutting down Derby engine
+----------------------------------------------------------------
+Wed Mar 25 12:49:18 NZDT 2015:
+Shutting down instance a816c00e-014c-4e30-51b2-000002f6f7e0 on database directory /home/guy/IdeaProjects/CodeStorage/123 with class loader sun.misc.Launcher$AppClassLoader@6f94fa3e 
+----------------------------------------------------------------

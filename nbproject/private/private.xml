@@ -3,9 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/home/guy/NetBeansProjects/ChickenFarm/src/java/nz/ac/aut/bcis/chickenfarm/databases/DataBase.java</file>
+            <file>file:/home/guy/NetBeansProjects/ChickenFarm/src/java/nz/ac/aut/bcis/chickenfarm/CreateUser.java</file>
             <file>file:/home/guy/NetBeansProjects/ChickenFarm/web/WEB-INF/web.xml</file>
+            <file>file:/home/guy/NetBeansProjects/ChickenFarm/web/signup.jsp</file>
             <file>file:/home/guy/NetBeansProjects/ChickenFarm/web/login.jsp</file>
             <file>file:/home/guy/NetBeansProjects/ChickenFarm/web/style/style.css</file>
+            <file>file:/home/guy/NetBeansProjects/ChickenFarm/src/java/nz/ac/aut/bcis/chickenfarm/AuthLogin.java</file>
             <file>file:/home/guy/NetBeansProjects/ChickenFarm/src/java/nz/ac/aut/bcis/chickenfarm/ChickeFarm.java</file>
         </group>
     </open-files>

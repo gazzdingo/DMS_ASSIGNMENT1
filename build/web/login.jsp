@@ -23,5 +23,6 @@
             <input type="password" name="password" value="" placeholder="Password" />
             <input type="submit" value="" />
         </form>
+        <h5><a href="signup.jsp">SIGN UP!</a></h5>
     </body>
 </html>
