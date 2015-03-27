@@ -24,6 +24,17 @@ public class Register extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        
+        if(email.length() == 0 || password.length() == 0)
+        {
+            InfoMessage error = new InfoMessage();
+            error.setMessageType("ERROR");
+            error.setMessage("User information cannot be empty");
+            request.setAttribute("error", error);
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
+            
+            return;
+        }
         // connecting to the database
         try {
             DataBase db = new DataBase();
