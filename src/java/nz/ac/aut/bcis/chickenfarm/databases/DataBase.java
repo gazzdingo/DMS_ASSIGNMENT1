@@ -25,7 +25,7 @@ public final class DataBase {
     private static final String ALTER_TABLE = "ALTER TABLE ITEMS add foreign key(id) references USERS";
     
 	private String driver = "org.apache.derby.jdbc.EmbeddedDriver";
-	private String URL = "jdbc:derby://localhost:1527/ChickenFarm/";
+	private String URL = "jdbc:derby://localhost:1527/ChickenFarm/;create=true";
         private String userName = "chicken";
         private String password = "farm";
 	private Connection conn;
