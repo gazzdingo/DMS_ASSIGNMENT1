@@ -11,18 +11,17 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="style/style.css">
         <title>Login Page</title>
-       
-        
     </head>
     <body>
         <form name="login" action="authlogin" method="POST">
-            <h2>LOGIN</h2>
-            <h3>EMAIL</h3>
+            <h3>LOGIN</h3>
+            <h5>EMAIL</h5>
             <input type="email" name="email" value="" placeholder="johnsmith@example.com" />
-            <h3>PASSWORD</h3>
+            <h5>PASSWORD</h5>
             <input type="password" name="password" value="" placeholder="Password" />
-            <h3></h3>
+            <h5></h5>
             <input type="submit" value="Login" />
+            <input type="submit" formaction="register" value="Register"/>
             <jsp:useBean id="error" class="nz.ac.aut.bcis.chickenfarm.InfoMessage" scope="request"/>
             <h5><%=error.getMessage() %></h5>
         </form>
