@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import nz.ac.aut.bcis.chickenfarm.databases.DataBase;
 
 /**
@@ -53,12 +54,15 @@ public class Register extends HttpServlet {
             else{
                 String addUser = "INSERT INTO USERS (EMAIL, PASSWORD) VALUES ('" +email + "','" + password + "')";
                 db.execute(addUser);
-                
-                InfoMessage error = new InfoMessage();
-                error.setMessageType("INFO");
-                error.setMessage("User created, login");
-                request.setAttribute("error", error);
-                request.getRequestDispatcher("/login.jsp").forward(request, response);
+               rs = db.query(query);
+            if(rs.next()){
+                 UserData ud= new UserData();
+                 ud.setEmail(rs.getString(2));
+                 ud.setId(rs.getInt(1));
+                 HttpSession session = request.getSession(true);
+                 session.setAttribute("userdata",ud);
+                request.getRequestDispatcher("/index.jsp").forward(request, response);
+            }
             }
            
             

@@ -21,6 +21,7 @@
             <input type="password" name="password" value="" placeholder="Password" />
             <h5></h5>
             <input type="submit" value="Login" />
+            <br>
             <input type="submit" formaction="register" value="Register"/>
             <jsp:useBean id="error" class="nz.ac.aut.bcis.chickenfarm.InfoMessage" scope="request"/>
             <h5><%=error.getMessage() %></h5>
