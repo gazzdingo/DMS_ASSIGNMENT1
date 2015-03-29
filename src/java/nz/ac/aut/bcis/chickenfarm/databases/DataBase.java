@@ -21,7 +21,7 @@ import java.util.List;
 public final class DataBase {
     
     private static final String CREATE_USER_TABLE = "CREATE TABLE Users (id INT not null primary key GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1), email VARCHAR(40) UNIQUE, password VARCHAR(40))";
-    private static final String CREATE_ITEM_TABLE = "CREATE TABLE Items (id INT not null primary key, item_type VARCHAR(30), location VARCHAR(30))";
+    private static final String CREATE_ITEM_TABLE = "CREATE TABLE Items (id INT not null, item_type VARCHAR(30), location VARCHAR(30))";
     private static final String ALTER_TABLE = "ALTER TABLE ITEMS add foreign key(id) references USERS";
     
 	private String driver = "org.apache.derby.jdbc.EmbeddedDriver";

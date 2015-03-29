@@ -39,6 +39,22 @@ public class AuthLogin extends HttpServlet {
                  ud.setId(rs.getInt(1));
                  HttpSession session = request.getSession(true);
                  session.setAttribute("userdata",ud);
+                 
+                String items = "SELECT * FROM ITEMS WHERE ID=" + ud.getId();
+                ResultSet itemResults = db.query(items);
+
+                while(itemResults.next())
+                {
+                    ItemData i = new ItemData();
+                    i.setOwnerID(itemResults.getInt(1));
+                    i.setItemType(itemResults.getString(2));
+                    String[] loc = itemResults.getString(3).split(":");
+                    i.setxLoc(Integer.parseInt(loc[0]));
+                    i.setyLoc(Integer.parseInt(loc[1]));
+                    
+                    ud.addItem(i);
+                }
+                
                 request.getRequestDispatcher("/index.jsp").forward(request, response);
             }
             else{

@@ -12,6 +12,10 @@
         <servlet-name>Register</servlet-name>
         <servlet-class>nz.ac.aut.bcis.chickenfarm.Register</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddChicken</servlet-name>
+        <servlet-class>nz.ac.aut.bcis.chickenfarm.AddChicken</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ChickeFarm</servlet-name>
         <url-pattern>/ChickeFarm</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>Register</servlet-name>
         <url-pattern>/Register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddChicken</servlet-name>
+        <url-pattern>/AddChicken</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
